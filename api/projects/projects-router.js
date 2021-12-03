@@ -4,9 +4,9 @@ const router = express.Router();
 const { errorHandling,   validateProjId, validateProj,} = require('./projects-middleware')
 const Projects = require('./projects-model');
 
-router.get('/', (req, res, next) => {
+    router.get('/', (req, res, next) => {
       
-     Projects.get()
+       Projects.get()
        .then((projects) => {
            res.status(200).json(projects);
        })
@@ -39,13 +39,13 @@ router.get('/', (req, res, next) => {
         Projects.remove(req.params.id)
         .then(project => res.json(project))    
         .catch(next);
- });
+    });
 
- router.get("/:id/actions", validateProjId , (req, res, next)=> { 
+    router.get("/:id/actions", validateProjId , (req, res, next)=> { 
      Projects.getProjectActions(req.params.id)
      .then(action => res.status(200).json(action))
      .catch(next);
- })
+    })
     
 router.use(errorHandling);
 
