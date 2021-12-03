@@ -1,5 +1,6 @@
 // Write your "actions" router here!
 const express = require("express");
+const router = express.Router();
 const Actions = require("./actions-model")
 
 const
@@ -8,7 +9,6 @@ const
     vaildateActionProjectId,
     vaildateActionId,
 } = require("./actions-middlware");
-const router = express.Router();
 
 router.get("/", (req, res, next) => {
     Actions.get()
