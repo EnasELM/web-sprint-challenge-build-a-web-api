@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const Actions = require("./actions-model")
-
+const { errorHandling } = require('../projects/projects-middleware');
 const
  {
     vaildateAction,
@@ -49,5 +49,7 @@ router.delete("/:id", vaildateActionId, (req, res, next)=> {
     .then(project => res.json(project))    
     .catch(next);
 });
+
+router.use(errorHandling);
 
 module.exports = router;
