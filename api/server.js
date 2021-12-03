@@ -13,6 +13,7 @@ server.use(express.json());
 server.use('/api/actions', actionsRouter);
 server.use('/api/projects', projectsRouter);
 
+
 server.use("*", (req, res) => {
     res.status(404).json({ message: " not found!" });
     console.log('hi from server.js!!!');
